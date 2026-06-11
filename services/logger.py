@@ -50,3 +50,33 @@ def write_log(
 
     log_path.write_text("\n".join(lines), encoding="utf-8")
     return log_path
+
+
+def write_index_log(folder: Path, metrics: dict) -> Path:
+    """
+    Escribe un log simple con métricas de indexación de facturas.
+
+    metrics: {
+        "total_pdfs": int,
+        "processed_pdfs": int,
+        "unique_identifiers": int,
+        "elapsed_seconds": float,
+    }
+    """
+    _LOGS_DIR.mkdir(exist_ok=True)
+    timestamp = "index-" + datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    log_path = _LOGS_DIR / f"{timestamp}.txt"
+
+    lines = [
+        f"FECHA                 : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+        f"CARPETA INDEXADA      : {folder}",
+        "",
+        "── METRICAS INDEXACIÓN ─────────────────────",
+        f"  Total PDFs encontrados : {metrics.get('total_pdfs')}",
+        f"  PDFs indexados        : {metrics.get('processed_pdfs')}",
+        f"  Identificadores únicos: {metrics.get('unique_identifiers')}",
+        f"  Tiempo (s)            : {metrics.get('elapsed_seconds'):.3f}",
+    ]
+
+    log_path.write_text("\n".join(lines), encoding="utf-8")
+    return log_path

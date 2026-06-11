@@ -1,0 +1,66 @@
+FECHA           : 2026-06-11 12:03:41
+ARCHIVO PARTIDA : C:\Users\mario\Downloads\Libro Diario  01-01-2025 al  31-01-2025.pdf
+
+── RESUMEN ──────────────────────────────────
+  Páginas de partida : 54
+  Con factura        : 37
+  Sin factura        : 17
+
+── DETALLE POR PÁGINA ───────────────────────
+  Página   1  →    ✘ sin factura encontrada
+  Página   2  →    ✘ sin factura encontrada
+  Página   3  →    ✘ sin factura encontrada
+  Página   4  →    ✔ A62E6D02-3D04-4751-B6E6-AF4CE05F5BE7.pdf
+  Página   5  →    ✔ 2ABE31D5-231F-4EBA-E064-00144FFBB3E6.pdf
+  Página   6  →    ✔ C040A4C4-1E97-4137-82D2-0A46FBCFABE8.pdf
+  Página   7  →    ✔ B5D1C763-55DA-45F0-B7E1-563E4C7125E7.pdf
+  Página   8  →    ✔ DTE-03-S008P003-000000000000735_7FDCBD61-F5FE-404B-ABA9-AC15199009C4.pdf
+  Página   9  →    ✔ C4C42500-AB2A-458F-A763-E3AE40070DAF.pdf
+  Página  10  →    ✔ 78DFF422-79BC-438E-BA6A-8282A32BA269.pdf
+  Página  11  →    ✔ 95F77DC8-4A07-49D2-8B24-86E45A6A32E5.pdf
+  Página  12  →    ✔ 69E04766-42F2-4961-85D3-646560A2AF02.pdf
+  Página  13  →    ✔ 61E9181A-7699-4EEA-AF47-C2A9DBE523AD.pdf
+  Página  14  →    ✔ 405987EF-0CFC-46FA-92C0-837F8D61B683.pdf
+  Página  15  →    ✔ DTE-03-M001PV02-000000000001661_11012025_2010812E-4174-4195-8F53-6DEE1A2F65A8.pdf
+  Página  16  →    ✔ 82E55A16-DC4C-477B-831C-5C7A661C398D.pdf
+  Página  17  →    ✔ DB6D3143-3C1B-48F8-A3FB-28962A0977E9.pdf
+  Página  18  →    ✔ DTE-03-S008P003-000000000001661_DD06A231-F3CE-4280-B4DB-C41ABC3049DD.pdf
+  Página  19  →    ✔ FB0C120C-1470-4DF4-B577-6DB4FE294280.pdf
+  Página  20  →    ✔ 05DACE85-B889-4EEC-9A3C-0DAB163A96E1.pdf
+  Página  21  →    ✔ D9F88DD1-591C-4EA3-B078-78083EB19312.pdf
+  Página  22  →    ✔ 47700CE4-8DB1-4548-8FEE-2F4AF10A7897.pdf
+  Página  23  →    ✔ 5406A7A5-FD66-4D5A-9EE5-564B1AF4BCEA.pdf
+  Página  24  →    ✔ 1BE9AED8-62BD-40A7-8DC7-E84C7CDDE102.pdf
+  Página  25  →    ✔ DTE-03-M001PV02-000000000002753_18012025_3ED9324C-9BD8-44A5-9DC7-F96E7D0359E4.pdf
+  Página  26  →    ✔ 451B03BA-EEF6-44DF-91A1-83E67FC8BAB5.pdf
+  Página  27  →    ✔ 81EA0138-3AD0-41F6-B2BA-45FB397FDC33.pdf
+  Página  28  →    ✔ 03B2E49D-E8D8-4EE2-85E1-59320EE526DD.pdf
+  Página  29  →    ✔ DTE-03-S008P003-000000000002602_8E436A80-91E4-40E8-8919-577B94F0F44F.pdf
+  Página  30  →    ✔ E3751F31-F1C3-4123-BC8C-3787706AFFA6.pdf
+  Página  31  →    ✔ D147E0AD-A3F8-4303-BDE7-5E2BF404CFD7.pdf
+  Página  32  →    ✘ sin factura encontrada
+  Página  33  →    ✘ sin factura encontrada
+  Página  34  →    ✘ sin factura encontrada
+  Página  35  →    ✘ sin factura encontrada
+  Página  36  →    ✔ 60987DF2-CF20-4566-93AD-484F6C7B21DB.pdf
+  Página  37  →    ✔ 3BC0992E-6D1B-40EF-AF81-39662B076ED2.pdf
+  Página  38  →    ✔ Comprobante_Electronico_2FE839BF-8B6C-4A84-A968-C47825368D31.PDF
+  Página  39  →    ✔ Comprobante_Electronico_1202E4C7-BC19-4E2C-80BE-29B3B9A55C1B.PDF
+  Página  40  →    ✔ Comprobante_Electronico_B7B2DFC0-DE1D-4EBF-9FF3-F566084A8DE8.PDF
+  Página  41  →    ✔ DTE-03-M001PV02-000000000003848_25012025_DD4B4EF0-3B2F-4569-B157-A8C2967F2497.pdf
+  Página  42  →    ✔ FF758BD0-06C8-41D7-90AA-1CA13842D135.pdf
+  Página  43  →    ✔ DTE-03-M001PV02-000000000004707_31012025_30B9F6BA-3841-49EF-8CD2-FC31A4ED74FE.pdf
+  Página  44  →    ✔ 9B7A74B1-B676-4FB1-921F-3AAFBE8FA85B.pdf
+  Página  45  →    ✘ sin factura encontrada
+  Página  46  →    ✘ sin factura encontrada
+  Página  47  →    ✘ sin factura encontrada
+  Página  48  →    ✘ sin factura encontrada
+  Página  49  →    ✘ sin factura encontrada
+  Página  50  →    ✘ sin factura encontrada
+  Página  51  →    ✘ sin factura encontrada
+  Página  52  →    ✘ sin factura encontrada
+  Página  53  →    ✘ sin factura encontrada
+  Página  54  →    ✘ sin factura encontrada
+
+── PDF FINAL ────────────────────────────────
+  C:\Users\mario\Downloads\01 ENERO\01 ENERO\partida_unificada2.pdf
