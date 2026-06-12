@@ -1,0 +1,8 @@
+FECHA                 : 2026-06-11 12:02:59
+CARPETA INDEXADA      : C:\Users\mario\Downloads\01 ENERO\01 ENERO
+
+── METRICAS INDEXACIÓN ─────────────────────
+  Total PDFs encontrados : 45
+  PDFs indexados        : 43
+  Identificadores únicos: 84
+  Tiempo (s)            : 16.413
