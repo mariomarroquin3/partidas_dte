@@ -131,7 +131,7 @@ self._page_identifiers: list[dict]
 
 ---
 
-### **PASO 4: Buscar Facturas**
+### **PASO 4: Buscar Facturas (con índice de facturas)**
 **Archivo:** `services/finder.py` → `search_pdfs()`
 
 ```
@@ -141,50 +141,39 @@ self._page_identifiers: list[dict]
 └────────┬──────────────────────────────────────────────┘
          │
          ▼
-1️⃣ Construir lista de códigos objetivo
-   Extrae TODOS los códigos de self._page_identifiers:
-   target_codes = [
-       UUID-001, DTE-12-ABC123,  # Página 1
-       UUID-002,                 # Página 2
-       ...
-   ]
+1️⃣ Construir (o reusar) índice de facturas
+   - La primera vez que se llama en una carpeta, se recorre UNA vez.
+   - Se abre cada PDF una sola vez con pdfplumber.
+   - Se extrae solo la primera página: pdf.pages[0].extract_text()[:3000]
+   - Se obtienen códigos UUID y DTE desde esa página.
+   - El índice queda como:
+       {
+         "UUID-001": [Path/factura_A.pdf],
+         "DTE-12-ABC123": [Path/factura_B.pdf],
+         ...
+       }
          │
          ▼
-2️⃣ Recorrer carpeta recursivamente
-   folder.rglob("*.pdf") → encuentra TODOS los .pdf
+2️⃣ Generar búsqueda rápida
+   - Para cada código objetivo, el índice devuelve la lista de PDFs asociados.
+   - No se reabre cada PDF por cada partida.
          │
          ▼
-3️⃣ Para CADA PDF encontrado:
-   _pdf_contains_code(pdf_path, target_codes)
-   ├─ extract_text_from_pdf(pdf_path)
-   │  └─ Lee TODO el PDF (texto concatenado)
-   │
-   ├─ extract_identifiers(texto)
-   │  └─ Extrae códigos como en Paso 2
-   │
-   ├─ Compara EXACTAMENTE:
-   │  for code in target_codes:
-   │      if code in found_codes:
-   │          matched.append(code)
-   │
-   └─ Devuelve (bool, matched_list)
-         │
-         ▼
-4️⃣ Construir mapeo de resultados
+3️⃣ Construir mapeo de resultados
    found = {
        "UUID-001": [Path/factura_A.pdf, Path/factura_C.pdf],
        "DTE-12-ABC123": [Path/factura_B.pdf],
-       "UUID-002": [],  # NO ENCONTRADO
+       "UUID-002": [],
        ...
    }
-   
-   missing = [UUID-002, ...]  # Códigos sin PDF
+
+   missing = [UUID-002, ...]
    duplicates = {
-       "UUID-001": [factura_A.pdf, factura_C.pdf]  # > 1 PDF
+       "UUID-001": [factura_A.pdf, factura_C.pdf]
    }
          │
          ▼
-5️⃣ Validar resultados
+4️⃣ Validar resultados
    validator.validate_results(search_result)
    ├─ total_targets: 20
    ├─ total_found: 18
@@ -193,16 +182,16 @@ self._page_identifiers: list[dict]
    └─ ok: False (hay faltantes)
          │
          ▼
-6️⃣ Actualizar mapeo página → factura
+5️⃣ Actualizar mapeo página → factura
    self._page_invoice_map = {
-       0: Path/factura_A.pdf,     # Página 1 tiene factura
-       1: None,                    # Página 2 sin factura
-       2: Path/factura_B.pdf,     # Página 3 tiene factura
+       0: Path/factura_A.pdf,
+       1: None,
+       2: Path/factura_B.pdf,
        ...
    }
          │
          ▼
-7️⃣ Mostrar resultados en UI
+6️⃣ Mostrar resultados en UI
    ├─ Resumen: "Encontradas: 18/20"
    ├─ Lista códigos encontrados con ruta
    ├─ Alerta sobre faltantes/duplicados
@@ -214,8 +203,11 @@ self._page_identifiers: list[dict]
 - `folder` (carpeta de facturas)
 
 **Proceso Crítico:**
-- ⚠️ Búsqueda recursiva completa → LENTO si hay muchos PDFs
-- ⚠️ Cada PDF se abre y procesa completamente
+- ✅ La carpeta se procesa una sola vez para construir el índice
+- ✅ Solo se lee la primera página de cada factura
+- ✅ Texto limitado a los primeros 3000 caracteres
+- ✅ Cada PDF se abre una sola vez durante la indexación
+- ⚠️ El índice se reusa en llamadas sucesivas para la misma carpeta
 
 **Salida:** 
 ```python
@@ -225,20 +217,18 @@ search_result = {
     "duplicates": {código: [Path, ...], ...}
 }
 
-validation = {
-    "total_targets": 20,
-    "total_found": 18,
-    "total_missing": 2,
-    "total_duplicates": 1,
-    "ok": False
-}
-
 page_invoice_map = {
     0: Path | None,
     1: Path | None,
     ...
 }
 ```
+
+**Métricas de indexación:**
+- Facturas encontradas: X
+- Facturas indexadas: Y
+- Identificadores únicos: Z
+- Tiempo de indexación: N segundos
 
 ---
 
